@@ -1,5 +1,7 @@
 base_packages:
+  - bash # GNU Bourne-Again SHell
   - vim # Text editor
+  - nano # Text editor
   - curl # Command-line tool for transferring data with URLs
   - wget # Command-line tool for retrieving files using HTTP, HTTPS, and FTP
 
@@ -8,23 +10,41 @@ argon_theme:
   - luci-app-argon-config=https://github.com/jerrykuku/luci-app-argon-config/releases/download/v0.9/luci-app-argon-config_0.9_all.ipk
 
 system_packages:
+  - htop # Interactive process viewer
   - block-mount # Mounting utility for block devices
   - e2fsprogs # Utilities for managing ext2/3/4 filesystems
   - fdisk # Disk partitioning tool
   - parted # Disk partitioning utility
   - losetup # Set up and control loop devices
   - resize2fs # Resize ext2/3/4 filesystems
-  # - tune2fs           # Adjust tunable filesystem parameters
-  # - dumpe2fs          # Dump filesystem information
+  - tune2fs # Adjust tunable filesystem parameters
+  - parted # Disk partitioning utility
+  - mtd-utils # Memory Technology Device utilities
+  - dumpe2fs # Dump filesystem information
+  - tcpdump # Network packet analyzer
+  - ethtool # Utility for examining and tuning network interfaces
+  - iperf3 # Network bandwidth measurement tool
+  - tmux # Terminal multiplexer
+  - socat # Bidirectional data relay
   - kmod-fs-ext4 # Kernel module for ext4 filesystem
+  - kmod-fs-vfat # Kernel module for VFAT filesystem
+  - kmod-fs-ntfs # Kernel module for NTFS filesystem
   - luci # Web interface for OpenWrt
   - luci-app-firewall # LuCI module for firewall configuration
   - luci-app-opkg # LuCI module for package management
   - luci-compat # LuCI compatibility layer
   - luci-lib-ipkg # LuCI support for ipkg
 
+python:
+  - python3 # Python 3 interpreter
+  - python3-dev # Python 3 development files
+  - python3-pip # Python 3 package installer
+
+podkop:
+  - podkop=https://github.com/itdoginfo/podkop/releases/download/v0.3.1/podkop_0.3.0-1_all.ipk
+  - luci-app-podkop=https://github.com/itdoginfo/podkop/releases/download/v0.3.1/luci-app-podkop_0.3.0_all.ipk
+
 usb_packages:
-  # - kmod-usb-storage # Remove this line
   - kmod-usb-net # Kernel module for USB networking
   - wireless-regdb # Regulatory database for wireless networks
   - usbutils # USB device utilities
@@ -36,10 +56,14 @@ network_packages:
   - luci-app-mwan3 # LuCI module for Multi-WAN management
 
 vpn_packages:
+  - sing-box # SingBox VPN client
   - openvpn-openssl # OpenVPN with OpenSSL support
   - luci-app-openvpn # LuCI module for OpenVPN configuration
+  - wireguard-tools # Tools for configuring WireGuard VPN
+  - luci-app-wireguard # LuCI module for WireGuard configuration
 
 dns_packages:
+  - dnsmasq-full # Dnsmasq with full feature set
   - https-dns-proxy # HTTPS DNS proxy
   - luci-app-https-dns-proxy # LuCI module for HTTPS DNS proxy configuration
 
@@ -71,10 +95,6 @@ management_packages:
   - luci-app-nlbwmon # LuCI module for network bandwidth monitoring
   - luci-app-wifischedule # LuCI module for WiFi scheduling
   - luci-app-watchcat # LuCI module for system monitoring and auto-reboot
-
-wireguard_packages:
-  - wireguard-tools # Tools for configuring WireGuard VPN
-  - luci-app-wireguard # LuCI module for WireGuard configuration
 
 filesharing_packages:
   - luci-app-samba4 # LuCI module for Samba file sharing
